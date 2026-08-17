@@ -11,8 +11,9 @@ Clone the repo, navigate to it in your terminal, then run:
 sudo ./install.sh
 ```
 
-If that doesn't work you may need to give execute access:
+If that doesn't work you may need to give execute access first, then run it:
 
 ```
 sudo chmod a+rx install.sh
+sudo ./install.sh
 ```
