@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+RED='\e[31m'
+GREEN='\e[32m'
+NC='\e[0m'
+
+while [[ $claudeconfirm != "yes" && $claudeconfirm != "no" ]]; do
+	 printf "${RED}You're about to use claude. Please confirm [yes/no]:${NC} "
+	 read claudeconfirm
+done
+if [[ $claudeconfirm == "no" ]]; then
+	printf "${GREEN}I'm proud of you\n${NC}"
+	exit 0
+fi
+
+while [[ $doubleconfirm != "yes" && $doubleconfirm != "no" ]]; do
+	printf "${RED}Are you sure? It might be worth the effort to do it yourself... [yes/no]:${NC} "
+	read doubleconfirm
+done
+if [[ $doubleconfirm == "no" ]]; then
+	printf "${GREEN}Phew, that was close!\n${NC}"
+	exit 0
+fi
+
+while [[ $important != "yes" && $important != "no" ]]; do
+	printf "${RED}Is what you're to do an important skill you should have? [yes/no]${NC} "
+	read important
+done
+if [[ $important == "yes" ]]; then
+	printf "${GREEN}Well then you should really do it yourself. Sorry, but vetoed.\n${NC}"
+	exit 0
+fi
+
+while [[ $nobrain != "i do" && $nobrain != "i do not" ]]; do
+	printf "${RED}You really don't want to use your brain? [i do/i do not]${NC} "
+	read nobrain
+done
+if [[ $nobrain == "i do" ]]; then
+	printf "${GREEN}Great! Go use it.\n${NC}"
+	exit 0
+fi
+
+while [[ $triedyourself != "yes" && $triedyourself != "no" ]]; do
+	printf "${RED}Have you at least tried to think through it yourself? [yes/no]${NC} "
+	read triedyourself
+done
+if [[ $triedyourself == "no" ]]; then
+	printf "${GREEN}Please give it a try and then come back.\n${NC}"
+	exit 0
+fi
+
+printf "${RED}Fine. You win. Hope you are happy.\n${NC}"
+sleep 5
+PATH=${PATH/\/usr\/local\/bin\/claudeconfirm/}
+claude
